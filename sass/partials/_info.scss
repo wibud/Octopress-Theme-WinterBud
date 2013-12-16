@@ -1,3 +1,7 @@
+@mixin social-style($imgPath, $color){
+	border: 1px solid $color;
+	background: image-url($imgPath) center no-repeat $color;
+}
 body .ower-info {
 	border: none;
 	text-align: center;
@@ -18,6 +22,33 @@ body .ower-info {
 		color: #fff;
 		font-size: 15px;
 	}
+
+	.social {
+		position: absolute;
+		top: 110px;
+		left: 10px;
+		a {
+			@include border-radius(50%);
+			@include inline-block;
+			text-indent: -9999px;
+			opacity: 0.5;
+			width: 28px;
+			height: 28px;
+			@include transition(0.3s);
+			&:hover{
+				opacity: 1;
+			}
+
+			&.weibo {
+				@include social-style('/images/social/weibo.png', #e32529)
+			}
+
+			&.github {
+				@include social-style('/images/social/github.png', #222);
+			}
+		}
+	}
+
 	@media only screen and (min-width: 1152px) {
 		padding-left: 25px;
 		h1 {
@@ -28,6 +59,9 @@ body .ower-info {
 		}
 		h2{
 			color: #777;
+		}
+		.social {
+			position: static;
 		}
 	}
 }
