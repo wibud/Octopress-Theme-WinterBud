@@ -5,7 +5,6 @@ This is a theme for the blogging framework Octopress that is based on classic th
 It looks like : [Winter Bud](http://winterbuder.com)
 
 ## Install
-==========
 
 Type the code below in terminal.
 
