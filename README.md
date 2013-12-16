@@ -9,8 +9,8 @@ It looks like : [Winter Bud](http://winterbuder.com)
 
 Type the code below in terminal.
 
-  $ cd octopress
-  $ git clone git://github.com/wibud/Octopress-Theme-WinterBud.git .themes/WinterBud
+	$ cd octopress
+	$ git clone git://github.com/wibud/Octopress-Theme-WinterBud.git .themes/WinterBud
   $ rake install['WinterBud']
   $ rake generate
   
