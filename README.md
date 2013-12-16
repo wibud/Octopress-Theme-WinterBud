@@ -11,6 +11,6 @@ Type the code below in terminal.
 
 	$ cd octopress
 	$ git clone git://github.com/wibud/Octopress-Theme-WinterBud.git .themes/WinterBud
-  $ rake install['WinterBud']
-  $ rake generate
+	$ rake install['WinterBud']
+	$ rake generate
   
