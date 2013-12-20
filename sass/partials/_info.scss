@@ -24,9 +24,6 @@ body .ower-info {
 	}
 
 	.social {
-		position: absolute;
-		top: 110px;
-		left: 10px;
 		a {
 			@include border-radius(50%);
 			@include inline-block;
@@ -59,9 +56,6 @@ body .ower-info {
 		}
 		h2{
 			color: #777;
-		}
-		.social {
-			position: static;
 		}
 	}
 }

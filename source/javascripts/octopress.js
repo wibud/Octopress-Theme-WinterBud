@@ -110,29 +110,38 @@ function renderDeliciousLinks(items) {
 }
 
 function fixOwerInfo(){
-  var elm = $('.ower-info');
-  var startPos = $(elm).offset().top;
-  $.event.add(window, "resize", function(){
-    $(window).width() > 1152 ? adjustPos(elm, startPos) : $(elm).removeAttr("style");
+  var elm = arguments.callee.elm = $('.ower-info');
+  var startPos = arguments.callee.startPos = $(elm).offset().top;
+  
+  $(window).resize(function(){
+    if($(window).width() > 1152){
+      $._data(window,"events")["scroll"] || ($(window).bind("scroll", adjustPos) && adjustPos());
+    }else{
+      $(elm).removeAttr("style");
+      $(window).unbind("scroll", adjustPos);
+    }
   });
-  $.event.add(window, "scroll", function(){
-    adjustPos(elm, startPos);
-  });
+
+  $(window).width() > 1152 && $(window).bind("scroll", adjustPos);
 }
 
-function adjustPos(elm, startPos){
+function adjustPos(){
+
+  var elm = fixOwerInfo.elm;
+  var startPos = fixOwerInfo.startPos;
+
   $(window).width() > 1152 && (function(){
     var pos = $(window).scrollTop();
     var content = $('#content');
     var deadlinePos = content.offset().top + content.height();
-    var endPos = pos + 60 + elm.height();
-    if((pos+60) > startPos){
+    var endPos = pos + 100 + elm.height();
+    if((pos+100) > startPos){
       if(endPos > deadlinePos){
         $(elm).css('position', 'absolute');
         $(elm).css('top', (deadlinePos - elm.height()) + 'px');
       }else{
         $(elm).css('position', 'fixed');
-        $(elm).css('top', '60px');
+        $(elm).css('top', '100px');
       }
     }else{
       $(elm).css('position', 'absolute');
